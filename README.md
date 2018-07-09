@@ -17,6 +17,7 @@ Using the commands shown below, a complete deploy can be run by piping the outpu
 ENV=$(env | grep = | grep -v '^_' | sed 's/\([^=]*\)=.*/ -e \1 /' | tr -d '\n')
 
 docker run --rm -i \
+    $ENV \
     -w /working/ \
     -v "$(pwd):/working/" \
     traherom/kustomize-docker \
@@ -51,7 +52,9 @@ If `$OVERLAY` is the name of the overlay to use and your current working directo
 Kustomize files:
 
 ```bash
+ENV=$(env | grep = | grep -v '^_' | sed 's/\([^=]*\)=.*/ -e \1 /' | tr -d '\n')
 docker run --rm -i \
+    $ENV \
     -w /working/ \
     -v "$(pwd):/working/" \
     traherom/kustomize-docker \
@@ -60,6 +63,9 @@ docker run --rm -i \
 
 Note that all `kustomization.yaml`s, resources, patches, etc must be under the working directory or the
 container will not be able to access them.
+
+We also include all the local environment variables in the kustomize run because configMap and secret
+generators might do things like "`echo $ENV_VAR`" and we want that to work.
 
 ## kubectl
 If `$KUBECONFIG` is the path to your K8s configuration file (this is the default variable named used by Gitlab's CI):
