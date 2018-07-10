@@ -77,3 +77,5 @@ docker run --rm -i \
     kubectl apply -f - \
     < input_file.yaml
 ```
+
+If you're going to be doing any `kubectl cp`ing, don't forget to add the appropriate volumes.
