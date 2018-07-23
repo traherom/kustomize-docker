@@ -9,6 +9,9 @@ Included additions beyond base Apline:
 Working directory is set to `/working/` if you need to mount files.
 
 # Usage
+## On docker
+If you're making up your own workflow, the image is on [Docker Hub](https://hub.docker.com/r/traherom/kustomize-docker/).
+
 ## End-to-end Usage
 Using the commands shown below, a complete deploy can be run by piping the output of each into the others:
 
