@@ -36,7 +36,7 @@ docker run --rm -i \
 ```
 
 ## envsubst
-Envsubst may be useful in building deploy-specific Kustomize overlays. A general patterns for this is:
+Envsubst may be useful in building deploy-specific Kustomize overlays. A general pattern for this is:
 
 ```bash
 # envsubst for plain sh using docker. Passes all exported variables off to docker
