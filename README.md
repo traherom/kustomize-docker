@@ -2,7 +2,7 @@
 Docker image for systems using Kustomize and kubectl.
 
 Included additions beyond base Apline:
-- Kustomize 1.0.4
+- Kustomize 1.0.5
 - Kubectl 1.11.1
 - envsubst
 
